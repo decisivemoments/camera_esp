@@ -1,0 +1,14 @@
+BasedOnStyle: Google
+IndentWidth: 4
+TabWidth: 4
+ColumnLimit: 0
+AlignConsecutiveAssignments: true
+AlignConsecutiveBitFields: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: true
+AlignEscapedNewlines: Right
+AlignOperands: true
+AlignTrailingComments: true
+PointerAlignment: Right 
+QualifierAlignment: Right
+ReferenceAlignment: Right  
