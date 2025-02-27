@@ -7,7 +7,7 @@
 - **ESP32S3 GPIO15** → **MAX98357A BCLK**
 - **ESP32S3 GPIO16** → **MAX98357A LRC**
 
-# INMP441 Microphone I2S Config
+# Correct INMP441 Microphone I2S Config
 
 i2s_chan_config_t audio_input_i2s_chan_cfg = I2S_CHANNEL_DEFAULT_CONFIG(I2S_NUM_0, I2S_ROLE_MASTER);
 
@@ -30,7 +30,7 @@ i2s_std_config_t audio_input_i2s_cfg = {
         },
 };
 
-# MAX98357A Digital Amplifier I2S Config
+# Correct MAX98357A Digital Amplifier I2S Config
 
 i2s_chan_config_t audio_output_i2s_chan_cfg = I2S_CHANNEL_DEFAULT_CONFIG(I2S_NUM_1, I2S_ROLE_MASTER);
 

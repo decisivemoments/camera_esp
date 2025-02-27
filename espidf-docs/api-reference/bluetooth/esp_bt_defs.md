@@ -1,0 +1,858 @@
+# Bluetooth® Generic Defines
+
+
+
+## API Reference
+
+
+
+### Header File
+
+
+* components/bt/host/bluedroid/api/include/api/esp_bt_defs.h
+* This header file can be included with:
+
+
+
+> ```
+> #include "esp_bt_defs.h"
+> 
+> ```
+* This header file is a part of the API provided by the `bt` component. To declare that your component depends on `bt`, add the following to your CMakeLists.txt:
+
+
+
+> ```
+> REQUIRES bt
+> 
+> ```
+> 
+> 
+> or
+> 
+> 
+> 
+> ```
+> PRIV_REQUIRES bt
+> 
+> ```
+
+
+
+
+### Structures
+
+
+#### esp_bt_uuid_t
+
+
+```
+
+
+struct esp_bt_uuid_t
+UUID type. 
+
+Public Members
+len
+
+uint16_t len
+UUID length, 16bit, 32bit or 128bit 
+
+uuid16
+
+uint16_t uuid16
+16bit UUID 
+
+uuid32
+
+uint32_t uuid32
+32bit UUID 
+
+uuid128
+
+uint8_t uuid128[ESP_UUID_LEN_128]
+128bit UUID 
+
+uuid
+
+union esp_bt_uuid_t::[anonymous] uuid
+UUID 
+
+
+
+```
+
+
+
+### Macros
+
+
+#### ESP_BLUEDROID_STATUS_CHECK
+
+
+```
+
+
+ESP_BLUEDROID_STATUS_CHECK(status)
+
+```
+
+#### ESP_BT_STATUS_BASE_FOR_HCI_ERR
+
+
+```
+
+
+ESP_BT_STATUS_BASE_FOR_HCI_ERR
+
+```
+
+#### ESP_BT_OCTET16_LEN
+
+
+```
+
+
+ESP_BT_OCTET16_LEN
+
+```
+
+#### ESP_BT_OCTET8_LEN
+
+
+```
+
+
+ESP_BT_OCTET8_LEN
+
+```
+
+#### ESP_DEFAULT_GATT_IF
+
+
+```
+
+
+ESP_DEFAULT_GATT_IF
+Default GATT interface id. 
+
+```
+
+#### ESP_BLE_PRIM_ADV_INT_MIN
+
+
+```
+
+
+ESP_BLE_PRIM_ADV_INT_MIN
+Minimum advertising interval for undirected and low duty cycle directed advertising 
+
+```
+
+#### ESP_BLE_PRIM_ADV_INT_MAX
+
+
+```
+
+
+ESP_BLE_PRIM_ADV_INT_MAX
+Maximum advertising interval for undirected and low duty cycle directed advertising 
+
+```
+
+#### ESP_BLE_CONN_INT_MIN
+
+
+```
+
+
+ESP_BLE_CONN_INT_MIN
+relate to BTM_BLE_CONN_INT_MIN in stack/btm_ble_api.h 
+
+```
+
+#### ESP_BLE_CONN_INT_MAX
+
+
+```
+
+
+ESP_BLE_CONN_INT_MAX
+relate to BTM_BLE_CONN_INT_MAX in stack/btm_ble_api.h 
+
+```
+
+#### ESP_BLE_CONN_LATENCY_MAX
+
+
+```
+
+
+ESP_BLE_CONN_LATENCY_MAX
+relate to ESP_BLE_CONN_LATENCY_MAX in stack/btm_ble_api.h 
+
+```
+
+#### ESP_BLE_CONN_SUP_TOUT_MIN
+
+
+```
+
+
+ESP_BLE_CONN_SUP_TOUT_MIN
+relate to BTM_BLE_CONN_SUP_TOUT_MIN in stack/btm_ble_api.h 
+
+```
+
+#### ESP_BLE_CONN_SUP_TOUT_MAX
+
+
+```
+
+
+ESP_BLE_CONN_SUP_TOUT_MAX
+relate to ESP_BLE_CONN_SUP_TOUT_MAX in stack/btm_ble_api.h 
+
+```
+
+#### ESP_BLE_IS_VALID_PARAM
+
+
+```
+
+
+ESP_BLE_IS_VALID_PARAM(x, min, max)
+Check the param is valid or not. 
+
+```
+
+#### ESP_UUID_LEN_16
+
+
+```
+
+
+ESP_UUID_LEN_16
+
+```
+
+#### ESP_UUID_LEN_32
+
+
+```
+
+
+ESP_UUID_LEN_32
+
+```
+
+#### ESP_UUID_LEN_128
+
+
+```
+
+
+ESP_UUID_LEN_128
+
+```
+
+#### ESP_BD_ADDR_LEN
+
+
+```
+
+
+ESP_BD_ADDR_LEN
+Bluetooth address length. 
+
+```
+
+#### ESP_PEER_IRK_LEN
+
+
+```
+
+
+ESP_PEER_IRK_LEN
+Bluetooth peer irk. 
+
+```
+
+#### ESP_BLE_ENC_KEY_MASK
+
+
+```
+
+
+ESP_BLE_ENC_KEY_MASK
+Used to exchange the encryption key in the init key & response key. 
+
+```
+
+#### ESP_BLE_ID_KEY_MASK
+
+
+```
+
+
+ESP_BLE_ID_KEY_MASK
+Used to exchange the IRK key in the init key & response key. 
+
+```
+
+#### ESP_BLE_CSR_KEY_MASK
+
+
+```
+
+
+ESP_BLE_CSR_KEY_MASK
+Used to exchange the CSRK key in the init key & response key. 
+
+```
+
+#### ESP_BLE_LINK_KEY_MASK
+
+
+```
+
+
+ESP_BLE_LINK_KEY_MASK
+Used to exchange the link key(this key just used in the BLE & BR/EDR coexist mode) in the init key & response key. 
+
+```
+
+#### ESP_APP_ID_MIN
+
+
+```
+
+
+ESP_APP_ID_MIN
+Minimum of the application id. 
+
+```
+
+#### ESP_APP_ID_MAX
+
+
+```
+
+
+ESP_APP_ID_MAX
+Maximum of the application id. 
+
+```
+
+#### ESP_BD_ADDR_STR
+
+
+```
+
+
+ESP_BD_ADDR_STR
+
+```
+
+#### ESP_BD_ADDR_HEX
+
+
+```
+
+
+ESP_BD_ADDR_HEX(addr)
+
+```
+
+
+
+### Type Definitions
+
+
+#### esp_bt_octet16_t
+
+
+```
+
+
+typedef uint8_t esp_bt_octet16_t[ESP_BT_OCTET16_LEN]
+
+```
+
+#### esp_bt_octet8_t
+
+
+```
+
+
+typedef uint8_t esp_bt_octet8_t[ESP_BT_OCTET8_LEN]
+
+```
+
+#### esp_link_key
+
+
+```
+
+
+typedef uint8_t esp_link_key[ESP_BT_OCTET16_LEN]
+
+```
+
+#### esp_bd_addr_t
+
+
+```
+
+
+typedef uint8_t esp_bd_addr_t[ESP_BD_ADDR_LEN]
+Bluetooth device address. 
+
+```
+
+#### esp_ble_key_mask_t
+
+
+```
+
+
+typedef uint8_t esp_ble_key_mask_t
+
+```
+
+
+
+### Enumerations
+
+
+#### esp_bt_status_t
+
+
+```
+
+
+enum esp_bt_status_t
+Status Return Value. 
+Values:
+ESP_BT_STATUS_SUCCESS
+
+enumerator ESP_BT_STATUS_SUCCESS
+
+ESP_BT_STATUS_FAIL
+
+enumerator ESP_BT_STATUS_FAIL
+
+ESP_BT_STATUS_NOT_READY
+
+enumerator ESP_BT_STATUS_NOT_READY
+
+ESP_BT_STATUS_NOMEM
+
+enumerator ESP_BT_STATUS_NOMEM
+
+ESP_BT_STATUS_BUSY
+
+enumerator ESP_BT_STATUS_BUSY
+
+ESP_BT_STATUS_DONE
+
+enumerator ESP_BT_STATUS_DONE
+
+ESP_BT_STATUS_UNSUPPORTED
+
+enumerator ESP_BT_STATUS_UNSUPPORTED
+
+ESP_BT_STATUS_PARM_INVALID
+
+enumerator ESP_BT_STATUS_PARM_INVALID
+
+ESP_BT_STATUS_UNHANDLED
+
+enumerator ESP_BT_STATUS_UNHANDLED
+
+ESP_BT_STATUS_AUTH_FAILURE
+
+enumerator ESP_BT_STATUS_AUTH_FAILURE
+
+ESP_BT_STATUS_RMT_DEV_DOWN
+
+enumerator ESP_BT_STATUS_RMT_DEV_DOWN
+
+ESP_BT_STATUS_AUTH_REJECTED
+
+enumerator ESP_BT_STATUS_AUTH_REJECTED
+
+ESP_BT_STATUS_INVALID_STATIC_RAND_ADDR
+
+enumerator ESP_BT_STATUS_INVALID_STATIC_RAND_ADDR
+
+ESP_BT_STATUS_PENDING
+
+enumerator ESP_BT_STATUS_PENDING
+
+ESP_BT_STATUS_UNACCEPT_CONN_INTERVAL
+
+enumerator ESP_BT_STATUS_UNACCEPT_CONN_INTERVAL
+
+ESP_BT_STATUS_PARAM_OUT_OF_RANGE
+
+enumerator ESP_BT_STATUS_PARAM_OUT_OF_RANGE
+
+ESP_BT_STATUS_TIMEOUT
+
+enumerator ESP_BT_STATUS_TIMEOUT
+
+ESP_BT_STATUS_PEER_LE_DATA_LEN_UNSUPPORTED
+
+enumerator ESP_BT_STATUS_PEER_LE_DATA_LEN_UNSUPPORTED
+
+ESP_BT_STATUS_CONTROL_LE_DATA_LEN_UNSUPPORTED
+
+enumerator ESP_BT_STATUS_CONTROL_LE_DATA_LEN_UNSUPPORTED
+
+ESP_BT_STATUS_ERR_ILLEGAL_PARAMETER_FMT
+
+enumerator ESP_BT_STATUS_ERR_ILLEGAL_PARAMETER_FMT
+
+ESP_BT_STATUS_MEMORY_FULL
+
+enumerator ESP_BT_STATUS_MEMORY_FULL
+
+ESP_BT_STATUS_EIR_TOO_LARGE
+
+enumerator ESP_BT_STATUS_EIR_TOO_LARGE
+
+ESP_BT_STATUS_HCI_SUCCESS
+
+enumerator ESP_BT_STATUS_HCI_SUCCESS
+
+ESP_BT_STATUS_HCI_ILLEGAL_COMMAND
+
+enumerator ESP_BT_STATUS_HCI_ILLEGAL_COMMAND
+
+ESP_BT_STATUS_HCI_NO_CONNECTION
+
+enumerator ESP_BT_STATUS_HCI_NO_CONNECTION
+
+ESP_BT_STATUS_HCI_HW_FAILURE
+
+enumerator ESP_BT_STATUS_HCI_HW_FAILURE
+
+ESP_BT_STATUS_HCI_PAGE_TIMEOUT
+
+enumerator ESP_BT_STATUS_HCI_PAGE_TIMEOUT
+
+ESP_BT_STATUS_HCI_AUTH_FAILURE
+
+enumerator ESP_BT_STATUS_HCI_AUTH_FAILURE
+
+ESP_BT_STATUS_HCI_KEY_MISSING
+
+enumerator ESP_BT_STATUS_HCI_KEY_MISSING
+
+ESP_BT_STATUS_HCI_MEMORY_FULL
+
+enumerator ESP_BT_STATUS_HCI_MEMORY_FULL
+
+ESP_BT_STATUS_HCI_CONNECTION_TOUT
+
+enumerator ESP_BT_STATUS_HCI_CONNECTION_TOUT
+
+ESP_BT_STATUS_HCI_MAX_NUM_OF_CONNECTIONS
+
+enumerator ESP_BT_STATUS_HCI_MAX_NUM_OF_CONNECTIONS
+
+ESP_BT_STATUS_HCI_MAX_NUM_OF_SCOS
+
+enumerator ESP_BT_STATUS_HCI_MAX_NUM_OF_SCOS
+
+ESP_BT_STATUS_HCI_CONNECTION_EXISTS
+
+enumerator ESP_BT_STATUS_HCI_CONNECTION_EXISTS
+
+ESP_BT_STATUS_HCI_COMMAND_DISALLOWED
+
+enumerator ESP_BT_STATUS_HCI_COMMAND_DISALLOWED
+
+ESP_BT_STATUS_HCI_HOST_REJECT_RESOURCES
+
+enumerator ESP_BT_STATUS_HCI_HOST_REJECT_RESOURCES
+
+ESP_BT_STATUS_HCI_HOST_REJECT_SECURITY
+
+enumerator ESP_BT_STATUS_HCI_HOST_REJECT_SECURITY
+
+ESP_BT_STATUS_HCI_HOST_REJECT_DEVICE
+
+enumerator ESP_BT_STATUS_HCI_HOST_REJECT_DEVICE
+
+ESP_BT_STATUS_HCI_HOST_TIMEOUT
+
+enumerator ESP_BT_STATUS_HCI_HOST_TIMEOUT
+
+ESP_BT_STATUS_HCI_UNSUPPORTED_VALUE
+
+enumerator ESP_BT_STATUS_HCI_UNSUPPORTED_VALUE
+
+ESP_BT_STATUS_HCI_ILLEGAL_PARAMETER_FMT
+
+enumerator ESP_BT_STATUS_HCI_ILLEGAL_PARAMETER_FMT
+
+ESP_BT_STATUS_HCI_PEER_USER
+
+enumerator ESP_BT_STATUS_HCI_PEER_USER
+
+ESP_BT_STATUS_HCI_PEER_LOW_RESOURCES
+
+enumerator ESP_BT_STATUS_HCI_PEER_LOW_RESOURCES
+
+ESP_BT_STATUS_HCI_PEER_POWER_OFF
+
+enumerator ESP_BT_STATUS_HCI_PEER_POWER_OFF
+
+ESP_BT_STATUS_HCI_CONN_CAUSE_LOCAL_HOST
+
+enumerator ESP_BT_STATUS_HCI_CONN_CAUSE_LOCAL_HOST
+
+ESP_BT_STATUS_HCI_REPEATED_ATTEMPTS
+
+enumerator ESP_BT_STATUS_HCI_REPEATED_ATTEMPTS
+
+ESP_BT_STATUS_HCI_PAIRING_NOT_ALLOWED
+
+enumerator ESP_BT_STATUS_HCI_PAIRING_NOT_ALLOWED
+
+ESP_BT_STATUS_HCI_UNKNOWN_LMP_PDU
+
+enumerator ESP_BT_STATUS_HCI_UNKNOWN_LMP_PDU
+
+ESP_BT_STATUS_HCI_UNSUPPORTED_REM_FEATURE
+
+enumerator ESP_BT_STATUS_HCI_UNSUPPORTED_REM_FEATURE
+
+ESP_BT_STATUS_HCI_SCO_OFFSET_REJECTED
+
+enumerator ESP_BT_STATUS_HCI_SCO_OFFSET_REJECTED
+
+ESP_BT_STATUS_HCI_SCO_INTERVAL_REJECTED
+
+enumerator ESP_BT_STATUS_HCI_SCO_INTERVAL_REJECTED
+
+ESP_BT_STATUS_HCI_SCO_AIR_MODE
+
+enumerator ESP_BT_STATUS_HCI_SCO_AIR_MODE
+
+ESP_BT_STATUS_HCI_INVALID_LMP_PARAM
+
+enumerator ESP_BT_STATUS_HCI_INVALID_LMP_PARAM
+
+ESP_BT_STATUS_HCI_UNSPECIFIED
+
+enumerator ESP_BT_STATUS_HCI_UNSPECIFIED
+
+ESP_BT_STATUS_HCI_UNSUPPORTED_LMP_PARAMETERS
+
+enumerator ESP_BT_STATUS_HCI_UNSUPPORTED_LMP_PARAMETERS
+
+ESP_BT_STATUS_HCI_ROLE_CHANGE_NOT_ALLOWED
+
+enumerator ESP_BT_STATUS_HCI_ROLE_CHANGE_NOT_ALLOWED
+
+ESP_BT_STATUS_HCI_LMP_RESPONSE_TIMEOUT
+
+enumerator ESP_BT_STATUS_HCI_LMP_RESPONSE_TIMEOUT
+
+ESP_BT_STATUS_HCI_LMP_ERR_TRANS_COLLISION
+
+enumerator ESP_BT_STATUS_HCI_LMP_ERR_TRANS_COLLISION
+
+ESP_BT_STATUS_HCI_LMP_PDU_NOT_ALLOWED
+
+enumerator ESP_BT_STATUS_HCI_LMP_PDU_NOT_ALLOWED
+
+ESP_BT_STATUS_HCI_ENCRY_MODE_NOT_ACCEPTABLE
+
+enumerator ESP_BT_STATUS_HCI_ENCRY_MODE_NOT_ACCEPTABLE
+
+ESP_BT_STATUS_HCI_UNIT_KEY_USED
+
+enumerator ESP_BT_STATUS_HCI_UNIT_KEY_USED
+
+ESP_BT_STATUS_HCI_QOS_NOT_SUPPORTED
+
+enumerator ESP_BT_STATUS_HCI_QOS_NOT_SUPPORTED
+
+ESP_BT_STATUS_HCI_INSTANT_PASSED
+
+enumerator ESP_BT_STATUS_HCI_INSTANT_PASSED
+
+ESP_BT_STATUS_HCI_PAIRING_WITH_UNIT_KEY_NOT_SUPPORTED
+
+enumerator ESP_BT_STATUS_HCI_PAIRING_WITH_UNIT_KEY_NOT_SUPPORTED
+
+ESP_BT_STATUS_HCI_DIFF_TRANSACTION_COLLISION
+
+enumerator ESP_BT_STATUS_HCI_DIFF_TRANSACTION_COLLISION
+
+ESP_BT_STATUS_HCI_UNDEFINED_0x2B
+
+enumerator ESP_BT_STATUS_HCI_UNDEFINED_0x2B
+
+ESP_BT_STATUS_HCI_QOS_UNACCEPTABLE_PARAM
+
+enumerator ESP_BT_STATUS_HCI_QOS_UNACCEPTABLE_PARAM
+
+ESP_BT_STATUS_HCI_QOS_REJECTED
+
+enumerator ESP_BT_STATUS_HCI_QOS_REJECTED
+
+ESP_BT_STATUS_HCI_CHAN_CLASSIF_NOT_SUPPORTED
+
+enumerator ESP_BT_STATUS_HCI_CHAN_CLASSIF_NOT_SUPPORTED
+
+ESP_BT_STATUS_HCI_INSUFFCIENT_SECURITY
+
+enumerator ESP_BT_STATUS_HCI_INSUFFCIENT_SECURITY
+
+ESP_BT_STATUS_HCI_PARAM_OUT_OF_RANGE
+
+enumerator ESP_BT_STATUS_HCI_PARAM_OUT_OF_RANGE
+
+ESP_BT_STATUS_HCI_UNDEFINED_0x31
+
+enumerator ESP_BT_STATUS_HCI_UNDEFINED_0x31
+
+ESP_BT_STATUS_HCI_ROLE_SWITCH_PENDING
+
+enumerator ESP_BT_STATUS_HCI_ROLE_SWITCH_PENDING
+
+ESP_BT_STATUS_HCI_UNDEFINED_0x33
+
+enumerator ESP_BT_STATUS_HCI_UNDEFINED_0x33
+
+ESP_BT_STATUS_HCI_RESERVED_SLOT_VIOLATION
+
+enumerator ESP_BT_STATUS_HCI_RESERVED_SLOT_VIOLATION
+
+ESP_BT_STATUS_HCI_ROLE_SWITCH_FAILED
+
+enumerator ESP_BT_STATUS_HCI_ROLE_SWITCH_FAILED
+
+ESP_BT_STATUS_HCI_INQ_RSP_DATA_TOO_LARGE
+
+enumerator ESP_BT_STATUS_HCI_INQ_RSP_DATA_TOO_LARGE
+
+ESP_BT_STATUS_HCI_SIMPLE_PAIRING_NOT_SUPPORTED
+
+enumerator ESP_BT_STATUS_HCI_SIMPLE_PAIRING_NOT_SUPPORTED
+
+ESP_BT_STATUS_HCI_HOST_BUSY_PAIRING
+
+enumerator ESP_BT_STATUS_HCI_HOST_BUSY_PAIRING
+
+ESP_BT_STATUS_HCI_REJ_NO_SUITABLE_CHANNEL
+
+enumerator ESP_BT_STATUS_HCI_REJ_NO_SUITABLE_CHANNEL
+
+ESP_BT_STATUS_HCI_CONTROLLER_BUSY
+
+enumerator ESP_BT_STATUS_HCI_CONTROLLER_BUSY
+
+ESP_BT_STATUS_HCI_UNACCEPT_CONN_INTERVAL
+
+enumerator ESP_BT_STATUS_HCI_UNACCEPT_CONN_INTERVAL
+
+ESP_BT_STATUS_HCI_DIRECTED_ADVERTISING_TIMEOUT
+
+enumerator ESP_BT_STATUS_HCI_DIRECTED_ADVERTISING_TIMEOUT
+
+ESP_BT_STATUS_HCI_CONN_TOUT_DUE_TO_MIC_FAILURE
+
+enumerator ESP_BT_STATUS_HCI_CONN_TOUT_DUE_TO_MIC_FAILURE
+
+ESP_BT_STATUS_HCI_CONN_FAILED_ESTABLISHMENT
+
+enumerator ESP_BT_STATUS_HCI_CONN_FAILED_ESTABLISHMENT
+
+ESP_BT_STATUS_HCI_MAC_CONNECTION_FAILED
+
+enumerator ESP_BT_STATUS_HCI_MAC_CONNECTION_FAILED
+
+
+```
+
+#### esp_bt_dev_type_t
+
+
+```
+
+
+enum esp_bt_dev_type_t
+Bluetooth device type. 
+Values:
+ESP_BT_DEVICE_TYPE_BREDR
+
+enumerator ESP_BT_DEVICE_TYPE_BREDR
+
+ESP_BT_DEVICE_TYPE_BLE
+
+enumerator ESP_BT_DEVICE_TYPE_BLE
+
+ESP_BT_DEVICE_TYPE_DUMO
+
+enumerator ESP_BT_DEVICE_TYPE_DUMO
+
+
+```
+
+#### esp_ble_addr_type_t
+
+
+```
+
+
+enum esp_ble_addr_type_t
+BLE device address type. 
+Values:
+BLE_ADDR_TYPE_PUBLIC
+
+enumerator BLE_ADDR_TYPE_PUBLIC
+Public Device Address 
+
+BLE_ADDR_TYPE_RANDOM
+
+enumerator BLE_ADDR_TYPE_RANDOM
+Random Device Address. To set this address, use the function esp_ble_gap_set_rand_addr(esp_bd_addr_t rand_addr) 
+
+BLE_ADDR_TYPE_RPA_PUBLIC
+
+enumerator BLE_ADDR_TYPE_RPA_PUBLIC
+Resolvable Private Address (RPA) with public identity address 
+
+BLE_ADDR_TYPE_RPA_RANDOM
+
+enumerator BLE_ADDR_TYPE_RPA_RANDOM
+Resolvable Private Address (RPA) with random identity address. To set this address, use the function esp_ble_gap_set_rand_addr(esp_bd_addr_t rand_addr) 
+
+
+```
+
+#### esp_ble_wl_addr_type_t
+
+
+```
+
+
+enum esp_ble_wl_addr_type_t
+white list address type 
+Values:
+BLE_WL_ADDR_TYPE_PUBLIC
+
+enumerator BLE_WL_ADDR_TYPE_PUBLIC
+
+BLE_WL_ADDR_TYPE_RANDOM
+
+enumerator BLE_WL_ADDR_TYPE_RANDOM
+
+
+```
