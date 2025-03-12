@@ -1,1 +1,1 @@
-void app_main() {}
+int app_main() {}
