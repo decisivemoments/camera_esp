@@ -1,0 +1,5 @@
+{
+    "build": {
+        "flags": "-L. -llibade -llibopencv_core -llibopencv_imgcodecs -llibopencv_imgproc -L3rdparty -lliblibpng -llibzlib"
+    }
+}
