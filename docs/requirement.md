@@ -32,8 +32,6 @@
 - 非采集时段进入低功耗模式
 - 自动切换分辨率（避免重复初始化）
 
-Note: The development environment has been set up successfully using PlatformIO, along with esp32-camera and opencv library (lib/esp32-camera and lib/opencv library are ready in the workspace directory).
-
 # Hardware Schematic (ESP32 & 0v2640 camera)
 
 | 字段名         | 描述                        | ESP32 对应引脚         |
