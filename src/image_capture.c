@@ -26,6 +26,8 @@ void capture_image_task() {
     while (1) {
         uint32_t current_time   = xTaskGetTickCount() * portTICK_PERIOD_MS;
         bool     needs_high_res = (current_time - last_high_res_capture_time) >= HIGH_RES_INTERVAL_MS;
+        ESP_LOGI(CAPTURE_TAG, "current_time: %lu, last_high_res_capture_time: %lu, diff: %lu",
+                 current_time, last_high_res_capture_time, current_time - last_high_res_capture_time);
 
         // Switch resolution mode (no reinitialization)
         if (switch_camera_mode(needs_high_res) != ESP_OK) {
@@ -56,27 +58,28 @@ void capture_image_task() {
                      frame->len, frame->width, frame->height);
 
             // // Process optical flow if previous frame exists
-            // if (previous_frame) {
-            //     // Allocate arrays for flow vectors (256 points x 2 components)
-            //     float flow_x[256];
-            //     float flow_y[256];
+            if (previous_frame) {
+                // // Allocate arrays for flow vectors (256 points x 2 components)
+                // float flow_x[256];
+                // float flow_y[256];
 
-            //     // Calculate optical flow between previous and current frames
-            //     esp_err_t flow_result = calc_optical_flow(previous_frame, frame, flow_x, flow_y);
+                // // Calculate optical flow between previous and current frames
+                // esp_err_t flow_result = calc_optical_flow(previous_frame, frame, flow_x, flow_y);
 
-            //     if (flow_result == ESP_OK) {
-            //         ESP_LOGI(CAPTURE_TAG,
-            //                  "Optical flow calculated (256 points). Sample vectors: [0]=(%.2f,%.2f), [255]=(%.2f,%.2f)",
-            //                  flow_x[0], flow_y[0], flow_x[255], flow_y[255]);
+                // if (flow_result == ESP_OK) {
+                //     ESP_LOGI(CAPTURE_TAG,
+                //              "Optical flow calculated (256 points). Sample vectors: [0]=(%.2f,%.2f), [255]=(%.2f,%.2f)",
+                //              flow_x[0], flow_y[0], flow_x[255], flow_y[255]);
 
-            //         // TODO: Add flow data processing/transmission logic here
-            //     } else {
-            //         ESP_LOGE(CAPTURE_TAG, "Optical flow calculation failed: 0x%x", flow_result);
-            //     }
+                //     // TODO: Add flow data processing/transmission logic here
+                // } else {
+                //     ESP_LOGE(CAPTURE_TAG, "Optical flow calculation failed: 0x%x", flow_result);
+                // }
 
-            //     // Release previous frame buffer before replacing it
-            //     esp_camera_fb_return(previous_frame);
-            // }
+                // Release previous frame buffer before replacing it
+                esp_camera_fb_return(previous_frame);
+            }
+            
             previous_frame = frame;
         }
 
