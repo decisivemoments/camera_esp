@@ -1,6 +1,8 @@
 #include "camera_config.h"
 #include "esp_log.h"
 #include "image_capture.h"
+#include "spp.h"
+#include <string.h>
 
 #define MAIN_TAG "MAIN_APP"
 
@@ -17,9 +19,16 @@ void app_main(void) {
     initialize_image_capture();
     ESP_LOGI(MAIN_TAG, "Image capture task started");
 
+    initialize_spp();
+
     // Main infinite loop - FreeRTOS tasks handle all functionality
     while (1) {
         vTaskDelay(pdMS_TO_TICKS(1000));            // Sleep 1 second (prevents watchdog triggers)
         ESP_LOGV(MAIN_TAG, "Main loop heartbeat");  // Verbose logging for debugging
+        char * data = "hello from esp32 camera!";
+        esp_err_t ret = send_image_data((uint8_t *)data, strlen(data), SPP_DATA_TYPE_LD);
+        if (ret != ESP_OK){
+            ESP_LOGW(MAIN_TAG, "send data error!");
+        }
     }
 }
