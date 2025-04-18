@@ -3,6 +3,7 @@
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "spp.h"
 
 #define CAPTURE_TAG          "IMAGE_CAPTURE"
 #define LOW_RES_INTERVAL_MS  250   // 4fps (1000ms/4 = 250ms)
@@ -51,6 +52,11 @@ void capture_image_task() {
             last_high_res_capture_time = current_time;
 
             // TODO: Add JPEG transmission logic
+            esp_err_t ret = send_image_data((uint8_t *)frame->buf, frame->len, SPP_DATA_TYPE_LD);
+            if (ret != ESP_OK){
+                ESP_LOGW(CAPTURE_TAG, "send data error!");
+            }
+
             esp_camera_fb_return(frame);
         } else {
             ESP_LOGI(CAPTURE_TAG,
@@ -59,6 +65,14 @@ void capture_image_task() {
 
             // // Process optical flow if previous frame exists
             if (previous_frame) {
+                int data[512];
+                for(int i=0;i<512;i++){
+                    data[i] = i;
+                }
+                esp_err_t ret = send_image_data((uint8_t *)data, 512 * 4, SPP_DATA_TYPE_LD);
+                if (ret != ESP_OK){
+                    ESP_LOGW(CAPTURE_TAG, "send data error!");
+                }
                 // // Allocate arrays for flow vectors (256 points x 2 components)
                 // float flow_x[256];
                 // float flow_y[256];
